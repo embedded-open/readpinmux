@@ -1,0 +1,14 @@
+# Script for reading the Pad Configuration Register setting of OMAP4430 processor 
+# Usage:
+#       sudo ./readpinmux.sh address1 [address2]
+# address1: the hexadicimal address offset of the pad configuration register to be displayed 
+# address2: the last address offset (HEX) of the pad configuration registers to be displayed
+# 
+# This script reqires the root privilege and the preinstalled devmem2.
+# 
+# The interpration of the register values is based on the section §18.4.8 and §18.6.6 of
+# OMAP4430 Multimedia Device Silicon Revision 2.x Technical Reference Manual Version Z (SWPU231Z) 
+# 
+# The base address of the SYSCTRL_PADCONF_CORE register on OMAP4430 is "0x4A100000" (§18.6.6) 
+# The offsets of registers are given in Table 18-9 or refer to the u-boot code:
+# ./arch/arm/include/asm/arch-omap4/mux_omap4.h
