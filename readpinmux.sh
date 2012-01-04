@@ -3,7 +3,7 @@
 # Copyright (c) 2011 Hans Little [embedded.open@googlemail.com]
 # All Rights Reserved.
 # 
-# Script for reading the Pad Configuration Register setting of OMAP4430 processor 
+# Script for read the Pad Configuration Register setting of OMAP4430 processor 
 # Usage:
 #       sudo ./readpinmux.sh address1 [address2]
 # address1: the hexadicimal address offset of the pad configuration register to be displayed 
@@ -19,7 +19,9 @@
 # ./arch/arm/include/asm/arch-omap4/mux_omap4.h
 
 # Define the base address for OMAP4430 
-ADDR_BASE=0x4A100000 
+ADDR_BASE=0x4A100000 # for PADCONF_CORE registers
+#ADDR_BASE=0x4A31E000 # for PADCONF_WKUP registers
+
 
 # Check the arguments 
 if [ $# -lt 1 -o $# -gt 3 ] ; then
@@ -123,5 +125,6 @@ else
 	fi 
 	printf "\n"
 	(( ADDR++ )) 
+	(( ADDR++ ))
     done
 fi 
